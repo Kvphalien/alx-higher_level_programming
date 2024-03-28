@@ -1,13 +1,20 @@
 #!/usr/bin/python3
-"""Fetches https://intranet.hbtn.io/status."""
+"""This script fetches data from
+    https://alx-intranet.hbtn.io/status
+"""
+
 import urllib.request
 
+url = 'https://alx-intranet.hbtn.io/status'
 
-if __name__ == "__main__":
-    request = urllib.request.Request("https://intranet.hbtn.io/status")
-    with urllib.request.urlopen(request) as response:
-        body = response.read()
-        print("Body response:")
-        print("\t- type: {}".format(type(body)))
-        print("\t- content: {}".format(body))
-        print("\t- utf8 content: {}".format(body.decode("utf-8")))
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+}
+
+req = urllib.request.Request(url, headers=headers)
+
+with urllib.request.urlopen(req) as response:
+    body = response.read().decode('utf-8')
+
+print('- Body response:')
+print('\t{}'.format(body))
