@@ -1,4 +1,5 @@
 #!/usr/bin/node
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -#!/usr/bin/node
 const fs = require('fs');
 const file = process.argv[2];
 const content = process.argv[3];
